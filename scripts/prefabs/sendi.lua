@@ -175,9 +175,8 @@ end
 ------------------------
 
 table.insert(inst.components.eater.foodprefs, "GEARS")
- table.insert(inst.components.eater.ablefoods, "GEARS")
- inst.components.eater:SetOnEatFn(oneat)
- applyupgrades(inst)
+inst.components.eater:SetOnEatFn(oneat)
+applyupgrades(inst)
  
  
  
