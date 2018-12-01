@@ -38,6 +38,14 @@ local function onclose(inst)
    inst.SoundEmitter:PlaySound("dontstarve/wendy/backpack_close", "open")
 end
 
+local slotpos = {}
+
+for y = 0, 3 do
+	table.insert(slotpos, Vector3(-162, -y*75 + 114 ,0))
+	table.insert(slotpos, Vector3(-162 +75, -y*75 + 114 ,0))
+end
+
+
 local function fn(Sim)
    local inst = CreateEntity()
     
@@ -45,8 +53,7 @@ local function fn(Sim)
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
     inst.entity:AddMiniMapEntity()
-    inst.entity:AddNetwork()
-   
+
    MakeInventoryPhysics(inst)
     
     inst.AnimState:SetBank("backpack1")
@@ -60,12 +67,6 @@ local function fn(Sim)
 
     inst.foleysound = "dontstarve/movement/foley/backpack"
 
-    if not TheWorld.ismastersim then
-        return inst
-    end
-
-    inst.entity:SetPristine()
-
     inst:AddComponent("sendispecific")
 
     inst:AddComponent("inspectable")
@@ -78,7 +79,14 @@ local function fn(Sim)
 	-- 냉장고 기능을 추가합니다.
 	
     inst:AddComponent("container")
-    inst.components.container:WidgetSetup("backpack")
+	inst.components.container:SetNumSlots(#slotpos)
+    inst.components.container.widgetslotpos = slotpos
+    inst.components.container.widgetanimbank = "ui_backpack_2x4"
+    inst.components.container.widgetanimbuild = "ui_backpack_2x4"
+    inst.components.container.widgetpos = Vector3(-5,-50,0)
+    inst.components.container.side_widget = true
+    inst.components.container.type = "pack"
+    --inst.components.container:WidgetSetup("backpack")
 	-- 센디의 가방 크기 : backpack[일반 가방], krampus_sack[크람푸스 가방]
 
     inst:AddComponent("inventoryitem")
@@ -121,8 +129,6 @@ end
    inst.components.sendispecific:SetStorable(true)
    inst.components.sendispecific:SetComment("이건 센디가 가지고 다니는 가방이야! 너무 예뻐!", "이건, 하얀 가방인가? 귀여운데?") 
 
-   
-   MakeHauntableLaunchAndDropFirstItem(inst)
     
     return inst
 end

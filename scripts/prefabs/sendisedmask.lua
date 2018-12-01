@@ -48,18 +48,12 @@ local function fn(Sim)
 	
     MakeInventoryPhysics(inst)
 	
-	inst.entity:AddNetwork()
 	inst:AddTag("hat")
     
     anim:SetBank("beehat")-- "sendisedmask"에서 수정함.
     anim:SetBuild("sendisedmask")-- "sendisedmask"에서 수정함.
     anim:PlayAnimation("anim")
 
-	
-	if not TheWorld.ismastersim then
-        return inst
-    end
-    
 	
     inst:AddComponent("inventoryitem")
     inst.components.inventoryitem.atlasname = "images/inventoryimages/sendisedmask.xml"

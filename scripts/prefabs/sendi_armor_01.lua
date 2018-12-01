@@ -19,7 +19,6 @@ local function fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
-    inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
 
@@ -29,10 +28,6 @@ local function fn()
 	
     --inst.AnimState:SetMultColour(1, 1, 1, 0.6)
 
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 
     inst:AddComponent("inspectable")
     inst:AddComponent("inventoryitem")

@@ -57,8 +57,6 @@ local function fn()
     local trans = inst.entity:AddTransform()
     local anim = inst.entity:AddAnimState()
    -- 아기쥐 추가   
-   
-    inst.entity:AddNetwork()
  
     MakeInventoryPhysics(inst)
 
@@ -72,12 +70,6 @@ local function fn()
     inst:AddTag("sharp") 
     inst:AddTag("pointy") 
 	-- 태그 설정, 이 두 태그는 없어도 됨(실행 확인)
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 
     --inst:AddComponent("perishable")
   --  inst.components.perishable:SetPerishTime(TUNING.PERISH_MED)
@@ -107,10 +99,6 @@ local function fn()
    inst.components.inventoryitem.imagename = "sendi_rapier_wood"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/sendi_rapier_wood.xml"
 		--인벤토리 아이템으로 설정됨
-   
-    MakeHauntableLaunchAndPerish(inst)
-   
-   
 
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(onequip)
