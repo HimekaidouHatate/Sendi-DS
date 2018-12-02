@@ -2,18 +2,18 @@
 -- 그래픽 자원 설정. 예시엔 드랍 이미지, 장착 이미지, 인벤토리 이미지, 인벤토리 이미지 xml이 설정됨.
 
 local assets ={
-    Asset("ANIM", "anim/sendi_rapier_wood.zip"),
-    Asset("ANIM", "anim/swap_sendi_rapier_wood.zip"),
-   --swap
-   Asset("ATLAS", "images/inventoryimages/sendi_rapier_wood.xml"),
-   Asset("IMAGE", "images/inventoryimages/sendi_rapier_wood.tex"),
+	Asset("ANIM", "anim/sendi_rapier_wood.zip"),
+	Asset("ANIM", "anim/swap_sendi_rapier_wood.zip"),
+		--swap
+	Asset("ATLAS", "images/inventoryimages/sendi_rapier_wood.xml"),
+	Asset("IMAGE", "images/inventoryimages/sendi_rapier_wood.tex"),
 }
 
 local function UpdateDamage(inst)
     if inst.components.perishable and inst.components.weapon then
-        local dmg = TUNING.HAMBAT_DAMAGE * inst.components.perishable:GetPercent()
-        dmg = Remap(dmg, 0, TUNING.HAMBAT_DAMAGE, TUNING.HAMBAT_MIN_DAMAGE_MODIFIER*TUNING.HAMBAT_DAMAGE, TUNING.HAMBAT_DAMAGE)
-        inst.components.weapon:SetDamage(dmg)
+		local dmg = TUNING.HAMBAT_DAMAGE * inst.components.perishable:GetPercent()
+		dmg = Remap(dmg, 0, TUNING.HAMBAT_DAMAGE, TUNING.HAMBAT_MIN_DAMAGE_MODIFIER*TUNING.HAMBAT_DAMAGE, TUNING.HAMBAT_DAMAGE)
+		inst.components.weapon:SetDamage(dmg)
     end
 end
 
@@ -53,7 +53,7 @@ local function fn()
     local inst = CreateEntity()
 
    
-   local inst = CreateEntity()
+	local inst = CreateEntity()
     local trans = inst.entity:AddTransform()
     local anim = inst.entity:AddAnimState()
    -- 아기쥐 추가   
@@ -96,7 +96,7 @@ local function fn()
 		--조사 가능하도록 설정
 	
     inst:AddComponent("inventoryitem")
-   inst.components.inventoryitem.imagename = "sendi_rapier_wood"
+	inst.components.inventoryitem.imagename = "sendi_rapier_wood"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/sendi_rapier_wood.xml"
 		--인벤토리 아이템으로 설정됨
 

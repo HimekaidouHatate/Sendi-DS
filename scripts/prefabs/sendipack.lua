@@ -15,46 +15,46 @@ local prefabs =
 
 
 local function onequip(inst, owner) 
-    owner.AnimState:OverrideSymbol("swap_body", "swap_sendipack", "sendipack")
-    owner.AnimState:OverrideSymbol("swap_body", "swap_sendipack", "swap_body")
-    if inst.components.container ~= nil then
-        inst.components.container:Open(owner)
+		owner.AnimState:OverrideSymbol("swap_body", "swap_sendipack", "sendipack")
+		owner.AnimState:OverrideSymbol("swap_body", "swap_sendipack", "swap_body")
+		if inst.components.container ~= nil then
+		inst.components.container:Open(owner)
     end
 end
 
 local function onunequip(inst, owner) 
-    owner.AnimState:ClearOverrideSymbol("swap_body")
-    owner.AnimState:ClearOverrideSymbol("sendipack")
-    if inst.components.container ~= nil then
-    inst.components.container:Close(owner)
-    end
+		owner.AnimState:ClearOverrideSymbol("swap_body")
+		owner.AnimState:ClearOverrideSymbol("sendipack")
+		if inst.components.container ~= nil then
+		inst.components.container:Close(owner)
+		end
 end
 
 local function onopen(inst)
-   inst.SoundEmitter:PlaySound("dontstarve/wendy/backpack_open", "open")
+	inst.SoundEmitter:PlaySound("dontstarve/wendy/backpack_open", "open")
 end
 
 local function onclose(inst)
-   inst.SoundEmitter:PlaySound("dontstarve/wendy/backpack_close", "open")
+	inst.SoundEmitter:PlaySound("dontstarve/wendy/backpack_close", "open")
 end
 
 local slotpos = {}
 
 for y = 0, 3 do
-	table.insert(slotpos, Vector3(-162, -y*75 + 114 ,0))
-	table.insert(slotpos, Vector3(-162 +75, -y*75 + 114 ,0))
+		table.insert(slotpos, Vector3(-162, -y*75 + 114 ,0))
+		table.insert(slotpos, Vector3(-162 +75, -y*75 + 114 ,0))
 end
 
 
 local function fn(Sim)
-   local inst = CreateEntity()
+	local inst = CreateEntity()
     
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
     inst.entity:AddMiniMapEntity()
 
-   MakeInventoryPhysics(inst)
+	MakeInventoryPhysics(inst)
     
     inst.AnimState:SetBank("backpack1")
     inst.AnimState:SetBuild("swap_sendipack")
@@ -109,11 +109,11 @@ local function fn(Sim)
 		-- 가방을 떨어뜨리게 합니다.
    
 if EQUIPSLOTS.PACK then
-      inst.components.equippable.equipslot = EQUIPSLOTS.PACK
-   elseif EQUIPSLOTS.BACK then
-      inst.components.equippable.equipslot = EQUIPSLOTS.BACK
-   else
-      inst.components.equippable.equipslot = EQUIPSLOTS.BODY
+	inst.components.equippable.equipslot = EQUIPSLOTS.PACK
+	elseif EQUIPSLOTS.BACK then
+	inst.components.equippable.equipslot = EQUIPSLOTS.BACK
+	else
+	inst.components.equippable.equipslot = EQUIPSLOTS.BODY
    end
    
     inst.components.equippable:SetOnEquip(onequip)
