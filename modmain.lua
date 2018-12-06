@@ -5,7 +5,7 @@ PrefabFiles = {
 	"sendi_armor_01",
 	"sendi_rapier", 
 	"sendi_rapier_wood",
-	--nanacap
+	
 }
 
 --캐릭터 아이템의 이름을 지정합니다. 
@@ -106,26 +106,26 @@ local Recipe = GLOBAL.Recipe
 -- nil, nil, nil, nil, "sendicraft" 여기서 "sendicraft"는 센디의 전용탭을 뜻한다.
 
 local sendipack_recipe = Recipe( ("sendipack"), {Ingredient("gears", 2), Ingredient("piggyback", 1)}, RECIPETABS.SURVIVAL, TECH.NONE )
-sendipack_recipe.atlas = "images/inventoryimages/sendipack.xml"
-STRINGS.RECIPE_DESC.SENDIPACK = "센디의 하얀 가방 입니다. [냉장고]"
+	sendipack_recipe.atlas = "images/inventoryimages/sendipack.xml"
+	STRINGS.RECIPE_DESC.SENDIPACK = "센디의 하얀 가방 입니다. [냉장고]"
 
-local sendisedmask_recipe = Recipe( ("sendisedmask"), { Ingredient("cutstone", 4), Ingredient("marble", 4)}, RECIPETABS.SURVIVAL, TECH.NONE )
-sendisedmask_recipe.atlas = "images/inventoryimages/sendisedmask.xml"
-STRINGS.RECIPE_DESC.SENDISEDMASK = "슬픈 사연이 담긴 마스크.[방수 25%]"
+local sendisedmask_recipe = Recipe( ("sendisedmask"), { Ingredient("cutstone", 4), Ingredient("goldnugget", 4)}, RECIPETABS.SURVIVAL, TECH.NONE )
+	sendisedmask_recipe.atlas = "images/inventoryimages/sendisedmask.xml"
+	STRINGS.RECIPE_DESC.SENDISEDMASK = "슬픈 사연이 담긴 마스크.[방수 25%]"
 -- SURVIVAL[생존] DRESS[ 드레스 ]
 
 -- AddRecipe 
-local sendi_armor_01_recipe = Recipe( ("sendi_armor_01"), {Ingredient("silk", 6), Ingredient("rabbit", 4), Ingredient("heatrock", 2)}, RECIPETABS.SURVIVAL, TECH.NONE )
-sendi_armor_01_recipe.atlas = "images/inventoryimages/sendi_armor_01.xml"
-STRINGS.RECIPE_DESC.SENDI_ARMOR_01 = "센디의 갑옷 입니다.[보온+이속]" 
+local sendi_armor_01_recipe = Recipe( ("sendi_armor_01"), {Ingredient("silk", 6), Ingredient("spidergland", 4), Ingredient("rope", 2)}, RECIPETABS.SURVIVAL, TECH.NONE )
+	sendi_armor_01_recipe.atlas = "images/inventoryimages/sendi_armor_01.xml"
+	STRINGS.RECIPE_DESC.SENDI_ARMOR_01 = "센디의 갑옷 입니다.[보온+이속]" 
 
-local sendi_rapier_recipe = Recipe( ("sendi_rapier"), {Ingredient("sendi_rapier_wood", 1), Ingredient("tentaclespike", 1), Ingredient("flint", 12)}, RECIPETABS.SURVIVAL, TECH.NONE )
-sendi_rapier_recipe.atlas = "images/inventoryimages/sendi_rapier.xml"
-STRINGS.RECIPE_DESC.SENDI_RAPIER = "센디의 레이피어 입니다."
+local sendi_rapier_recipe = Recipe( ("sendi_rapier"), {Ingredient("sendi_rapier_wood", 1), Ingredient("hambat", 1), Ingredient("flint", 12)}, RECIPETABS.SURVIVAL, TECH.NONE )
+	sendi_rapier_recipe.atlas = "images/inventoryimages/sendi_rapier.xml"
+	STRINGS.RECIPE_DESC.SENDI_RAPIER = "센디의 레이피어 입니다."
 		
 local sendi_rapier_wood_recipe = Recipe( ("sendi_rapier_wood"), {Ingredient("twigs", 2), Ingredient("log", 8), Ingredient("rope", 2)}, RECIPETABS.SURVIVAL, TECH.NONE )
-sendi_rapier_wood_recipe.atlas = "images/inventoryimages/sendi_rapier_wood.xml"
-STRINGS.RECIPE_DESC.SENDI_RAPIER_WOOD = "센디의 연습용 레이피어 입니다."
+	sendi_rapier_wood_recipe.atlas = "images/inventoryimages/sendi_rapier_wood.xml"
+	STRINGS.RECIPE_DESC.SENDI_RAPIER_WOOD = "센디의 연습용 레이피어 입니다."
 		
 		
 		

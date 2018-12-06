@@ -25,9 +25,9 @@ end
 local function onunequip(inst, owner) 
     owner.AnimState:ClearOverrideSymbol("swap_body")
     owner.AnimState:ClearOverrideSymbol("sendipack")
-    if inst.components.container ~= nil then
-    inst.components.container:Close(owner)
-    end
+		if inst.components.container ~= nil then
+		inst.components.container:Close(owner)
+		end
 end
 
 local function onopen(inst)
@@ -54,7 +54,7 @@ local function fn(Sim)
     inst.entity:AddSoundEmitter()
     inst.entity:AddMiniMapEntity()
 
-   MakeInventoryPhysics(inst)
+	MakeInventoryPhysics(inst)
     
     inst.AnimState:SetBank("backpack1")
     inst.AnimState:SetBuild("swap_sendipack")
@@ -98,11 +98,11 @@ local function fn(Sim)
     inst.components.container.onopenfn = onopen
     inst.components.container.onclosefn = onclose
     
-    --inst:AddComponent("equippable")
-    --inst.components.equippable.keepondeath = true
-	--inst.components.equippable.equipslot = EQUIPSLOTS.BODY
-	-- 가방을 떨어뜨리게 하지 않습니다.
-	
+			--inst:AddComponent("equippable")
+			--inst.components.equippable.keepondeath = true
+			--inst.components.equippable.equipslot = EQUIPSLOTS.BODY
+			-- 가방을 떨어뜨리게 하지 않습니다.
+		
 	    inst:AddComponent("equippable")
 		inst.components.equippable.keepondeath = false
 		inst.components.equippable.equipslot = EQUIPSLOTS.BODY
@@ -110,16 +110,16 @@ local function fn(Sim)
    
 if EQUIPSLOTS.PACK then
       inst.components.equippable.equipslot = EQUIPSLOTS.PACK
-   elseif EQUIPSLOTS.BACK then
-      inst.components.equippable.equipslot = EQUIPSLOTS.BACK
-   else
-      inst.components.equippable.equipslot = EQUIPSLOTS.BODY
-   end
+		elseif EQUIPSLOTS.BACK then
+		inst.components.equippable.equipslot = EQUIPSLOTS.BACK
+		else
+		inst.components.equippable.equipslot = EQUIPSLOTS.BODY
+end
    
     inst.components.equippable:SetOnEquip(onequip)
     inst.components.equippable:SetOnUnequip(onunequip)
-    inst.components.equippable.walkspeedmult = 1.0
-
+    inst.components.equippable.walkspeedmult = nil
+	--3번째 : 이동속도 / 1로하면 개빨라지니 주의. 소수점으로맞출것 !.!	
     
    if not inst.components.sendispecific then
     inst:AddComponent("sendispecific")

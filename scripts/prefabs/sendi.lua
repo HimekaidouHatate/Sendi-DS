@@ -84,13 +84,13 @@ local fn = function(inst)
 inst.level = 0
 --레벨업 함수 시작 
 
-inst.components.health:SetMaxHealth(90)
- inst.components.hunger:SetMax(120)
-        inst.components.hunger:SetRate(TUNING.WILSON_HUNGER_RATE * 1)
+		inst.components.health:SetMaxHealth(90)
+		inst.components.hunger:SetMax(120)
+		inst.components.hunger:SetRate(TUNING.WILSON_HUNGER_RATE * 1)
 		inst.components.combat.damagemultiplier = 0.8
- inst.components.combat.min_attack_period = 0.02
- inst.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED * 1.2)
- inst.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED * 1.45)
+		inst.components.combat.min_attack_period = 0.02
+		inst.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED * 1.2)
+		inst.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED * 1.45)
  
 
  ------ 5초에 1.5 회복
@@ -99,18 +99,18 @@ inst.components.health:SetMaxHealth(90)
 --위커바컴 책 읽기 제조 추가 
 --알아낸 사실: 기존 돈스타브폴더안 book. 루아 같은것을 캐릭터 루아있는곳에붙혀도 된다.. 이건 혁명인걸?
 
-   inst:AddComponent("reader")
+	inst:AddComponent("reader")
     inst.components.eater.stale_hunger = TUNING.WICKERBOTTOM_STALE_FOOD_HUNGER
     inst.components.eater.stale_health = TUNING.WICKERBOTTOM_STALE_FOOD_HEALTH
     inst.components.eater.spoiled_hunger = TUNING.WICKERBOTTOM_SPOILED_FOOD_HUNGER
     inst.components.eater.spoiled_health = TUNING.WICKERBOTTOM_SPOILED_FOOD_HEALTH
  local booktab = {str = STRINGS.TABS.BOOKS, sort=999, icon = "tab_book.tex"}
- inst.components.builder:AddRecipeTab(booktab)
- Recipe("book_birds", {Ingredient("papyrus", 2), Ingredient("bird_egg", 2)}, booktab, {SCIENCE = 0, MAGIC = 0, ANCIENT = 0})
- Recipe("book_gardening", {Ingredient("papyrus", 2), Ingredient("seeds", 1), Ingredient("poop", 1)}, booktab, {SCIENCE = 1})
- Recipe("book_sleep", {Ingredient("papyrus", 2), Ingredient("nightmarefuel", 2)}, booktab, {MAGIC = 2})
- Recipe("book_brimstone", {Ingredient("papyrus", 2), Ingredient("redgem", 1)}, booktab, {MAGIC = 3})
- Recipe("book_tentacles", {Ingredient("papyrus", 2), Ingredient("tentaclespots", 1)}, booktab, {SCIENCE = 3})
+	inst.components.builder:AddRecipeTab(booktab)
+	Recipe("book_birds", {Ingredient("papyrus", 2), Ingredient("bird_egg", 2)}, booktab, {SCIENCE = 0, MAGIC = 0, ANCIENT = 0})
+	Recipe("book_gardening", {Ingredient("papyrus", 2), Ingredient("seeds", 1), Ingredient("poop", 1)}, booktab, {SCIENCE = 1})
+	Recipe("book_sleep", {Ingredient("papyrus", 2), Ingredient("nightmarefuel", 2)}, booktab, {MAGIC = 2})
+	Recipe("book_brimstone", {Ingredient("papyrus", 2), Ingredient("redgem", 1)}, booktab, {MAGIC = 3})
+	Recipe("book_tentacles", {Ingredient("papyrus", 2), Ingredient("tentaclespots", 1)}, booktab, {SCIENCE = 3})
  
  
    -- choose which sounds this character will play
@@ -160,16 +160,16 @@ local function oneat(inst, food)
  
  if food and food.components.edible and food.components.edible.foodtype == "GEARS" then
   --give an upgrade!
-  inst.level = inst.level + 1
-  applyupgrades(inst) 
-  inst.SoundEmitter:PlaySound("dontstarve/characters/wx78/levelup")
-  inst.HUD.controls.status.heart:PulseGreen()
-  inst.HUD.controls.status.stomach:PulseGreen()
-  inst.HUD.controls.status.brain:PulseGreen()
+	inst.level = inst.level + 1
+	applyupgrades(inst) 
+	inst.SoundEmitter:PlaySound("dontstarve/characters/wx78/levelup")
+	inst.HUD.controls.status.heart:PulseGreen()
+	inst.HUD.controls.status.stomach:PulseGreen()
+	inst.HUD.controls.status.brain:PulseGreen()
   
-  inst.HUD.controls.status.brain:ScaleTo(1.3,1,.7)
-  inst.HUD.controls.status.heart:ScaleTo(1.3,1,.7)
-  inst.HUD.controls.status.stomach:ScaleTo(1.3,1,.7)
+	inst.HUD.controls.status.brain:ScaleTo(1.3,1,.7)
+	inst.HUD.controls.status.heart:ScaleTo(1.3,1,.7)
+	inst.HUD.controls.status.stomach:ScaleTo(1.3,1,.7)
  end
 end
 ------------------------
@@ -189,18 +189,18 @@ end
 
 local function onload(inst, data)
  if data then
-  if data.level then
-   inst.level = data.level
-   applyupgrades(inst) -- 게임 로드시 레벨을 다시 불러와 저장합니다.
+	  if data.level then
+	   inst.level = data.level
+	   applyupgrades(inst) -- 게임 로드시 레벨을 다시 불러와 저장합니다.
 
-   if data.health and data.health.health then inst.components.health.currenthealth = data.health.health end
-   if data.hunger and data.hunger.hunger then inst.components.hunger.current = data.hunger.hunger end
-   if data.sanity and data.sanity.current then inst.components.sanity.current = data.sanity.current end
-   inst.components.health:DoDelta(0)
-   inst.components.hunger:DoDelta(0)
-   inst.components.sanity:DoDelta(0)
-  end
- end
+	   if data.health and data.health.health then inst.components.health.currenthealth = data.health.health end
+	   if data.hunger and data.hunger.hunger then inst.components.hunger.current = data.hunger.hunger end
+	   if data.sanity and data.sanity.current then inst.components.sanity.current = data.sanity.current end
+	   inst.components.health:DoDelta(0)
+	   inst.components.hunger:DoDelta(0)
+	   inst.components.sanity:DoDelta(0)
+	  end
+	end
 
 end
 

@@ -4,7 +4,7 @@
 local assets ={
     Asset("ANIM", "anim/sendi_rapier_wood.zip"),
     Asset("ANIM", "anim/swap_sendi_rapier_wood.zip"),
-   --swap
+	--swap
    Asset("ATLAS", "images/inventoryimages/sendi_rapier_wood.xml"),
    Asset("IMAGE", "images/inventoryimages/sendi_rapier_wood.tex"),
 }
@@ -29,22 +29,22 @@ local function onequip(inst, owner)
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
 	
-	-- 장착 시 설정.
-	-- owner.AnimState:OverrideSymbol("애니메이션 뱅크명", "빌드명", "빌드 폴더명")
-	-- 그 아래 2줄은 물건을 들고 있는 팔 모습을 활성화하고, 빈 팔 모습을 비활성화.
+		-- 장착 시 설정.
+		-- owner.AnimState:OverrideSymbol("애니메이션 뱅크명", "빌드명", "빌드 폴더명")
+		-- 그 아래 2줄은 물건을 들고 있는 팔 모습을 활성화하고, 빈 팔 모습을 비활성화.
 
 
    end
 
    
 local function onunequip(inst, owner)
-    --UpdateDamage(inst)
+		--UpdateDamage(inst)
     owner.AnimState:Hide("ARM_carry")
     owner.AnimState:Show("ARM_normal")
-  --  local skin_build = inst:GetSkinBuild()
-   -- if skin_build ~= nil then
-   --     owner:PushEvent("unequipskinneditem", inst:GetSkinName())
-   -- end
+		--local skin_build = inst:GetSkinBuild()
+		--if skin_build ~= nil then
+		--owner:PushEvent("unequipskinneditem", inst:GetSkinName())
+		-- end
 end
 
 
@@ -53,7 +53,7 @@ local function fn()
     local inst = CreateEntity()
 
    
-   local inst = CreateEntity()
+	local inst = CreateEntity()
     local trans = inst.entity:AddTransform()
     local anim = inst.entity:AddAnimState()
    -- 아기쥐 추가   
@@ -71,10 +71,10 @@ local function fn()
     inst:AddTag("pointy") 
 	-- 태그 설정, 이 두 태그는 없어도 됨(실행 확인)
 
-    --inst:AddComponent("perishable")
-  --  inst.components.perishable:SetPerishTime(TUNING.PERISH_MED)
-   -- inst.components.perishable:StartPerishing()
-  --  inst.components.perishable.onperishreplacement = "spoiled_food"
+	--inst:AddComponent("perishable")
+	--inst.components.perishable:SetPerishTime(TUNING.PERISH_MED)
+	--inst.components.perishable:StartPerishing()
+	--inst.components.perishable.onperishreplacement = "spoiled_food"
 		--유통기한
    
     inst:AddComponent("weapon")
@@ -96,7 +96,7 @@ local function fn()
 		--조사 가능하도록 설정
 	
     inst:AddComponent("inventoryitem")
-   inst.components.inventoryitem.imagename = "sendi_rapier_wood"
+	inst.components.inventoryitem.imagename = "sendi_rapier_wood"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/sendi_rapier_wood.xml"
 		--인벤토리 아이템으로 설정됨
 

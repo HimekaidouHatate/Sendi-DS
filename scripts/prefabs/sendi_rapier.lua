@@ -2,11 +2,11 @@
 -- 그래픽 자원 설정. 예시엔 드랍 이미지, 장착 이미지, 인벤토리 이미지, 인벤토리 이미지 xml이 설정됨.
 
 local assets ={
-    Asset("ANIM", "anim/sendi_rapier.zip"),
-    Asset("ANIM", "anim/swap_sendi_rapier.zip"),
-   
-   Asset("ATLAS", "images/inventoryimages/sendi_rapier.xml"),
-   Asset("IMAGE", "images/inventoryimages/sendi_rapier.tex"),
+	Asset("ANIM", "anim/sendi_rapier.zip"),
+	Asset("ANIM", "anim/swap_sendi_rapier.zip"),
+	   
+	Asset("ATLAS", "images/inventoryimages/sendi_rapier.xml"),
+	Asset("IMAGE", "images/inventoryimages/sendi_rapier.tex"),
 }
 
 local function UpdateDamage(inst)
@@ -38,13 +38,13 @@ local function onequip(inst, owner)
 
    
 local function onunequip(inst, owner)
-    --UpdateDamage(inst)
-    owner.AnimState:Hide("ARM_carry")
-    owner.AnimState:Show("ARM_normal")
-  --  local skin_build = inst:GetSkinBuild()
-   -- if skin_build ~= nil then
-   --     owner:PushEvent("unequipskinneditem", inst:GetSkinName())
-   -- end
+		--UpdateDamage(inst)
+	owner.AnimState:Hide("ARM_carry")
+	owner.AnimState:Show("ARM_normal")
+		--local skin_build = inst:GetSkinBuild()
+		--if skin_build ~= nil then
+		--owner:PushEvent("unequipskinneditem", inst:GetSkinName())
+		--end
 end
 
 
@@ -53,7 +53,7 @@ local function fn()
     local inst = CreateEntity()
 
    
-   local inst = CreateEntity()
+	local inst = CreateEntity()
     local trans = inst.entity:AddTransform()
     local anim = inst.entity:AddAnimState()
    -- 아기쥐 추가   
@@ -72,11 +72,11 @@ local function fn()
     inst:AddTag("pointy") 
 	-- 태그 설정, 이 두 태그는 없어도 됨(실행 확인)
 
-    --inst:AddComponent("perishable")
-  --  inst.components.perishable:SetPerishTime(TUNING.PERISH_MED)
-   -- inst.components.perishable:StartPerishing()
-  --  inst.components.perishable.onperishreplacement = "spoiled_food"
-   --유통기한
+		--inst:AddComponent("perishable")
+		--inst.components.perishable:SetPerishTime(TUNING.PERISH_MED)
+		--inst.components.perishable:StartPerishing()
+		--inst.components.perishable.onperishreplacement = "spoiled_food"
+		--유통기한
    
     inst:AddComponent("weapon")
     inst.components.weapon:SetDamage(50)
@@ -85,20 +85,20 @@ local function fn()
 
     -------
     --[[
-    inst:AddComponent("edible")
-    inst.components.edible.foodtype = FOODTYPE.MEAT
-    inst.components.edible.healthvalue = -TUNING.HEALING_MEDSMALL
-    inst.components.edible.hungervalue = TUNING.CALORIES_MED
-    inst.components.edible.sanityvalue = -TUNING.SANITY_MED
-    --]]
-	-- 내구도 설정. 이 구간을 지워버리면 무한 내구도가 될 것이라 추정. a는 최대 내구도, b는 제작 완료 시 내구도. 대부분 a = b.
+		inst:AddComponent("edible")
+		inst.components.edible.foodtype = FOODTYPE.MEAT
+		inst.components.edible.healthvalue = -TUNING.HEALING_MEDSMALL
+		inst.components.edible.hungervalue = TUNING.CALORIES_MED
+		inst.components.edible.sanityvalue = -TUNING.SANITY_MED
+		--]]
+		-- 내구도 설정. 이 구간을 지워버리면 무한 내구도가 될 것이라 추정. a는 최대 내구도, b는 제작 완료 시 내구도. 대부분 a = b.
   
    
     inst:AddComponent("inspectable")
 	--조사 가능하도록 설정
 	
     inst:AddComponent("inventoryitem")
-   inst.components.inventoryitem.imagename = "sendi_rapier"
+	inst.components.inventoryitem.imagename = "sendi_rapier"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/sendi_rapier.xml"
    --인벤토리 아이템으로 설정됨
   

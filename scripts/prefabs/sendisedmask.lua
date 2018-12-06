@@ -16,13 +16,13 @@ local function OnEquip(inst, owner)
     owner.AnimState:OverrideSymbol("swap_hat", "sendisedmask_swap", "swap_hat")
 	owner.AnimState:OverrideSymbol("swap_hat", "sendisedmask", "swap_hat")
 									--덧씌울 애니메이션인 뱅크명 / build[sendisedmask_swap] 위에서 언급한 부품들 / build가 들어있는 폴더명
-        owner.AnimState:Show("HAT")
-        owner.AnimState:Hide("HAT_HAIR")
-        owner.AnimState:Hide("HAIR_NOHAT")
-        owner.AnimState:Show("HAIR")
+	owner.AnimState:Show("HAT")
+	owner.AnimState:Hide("HAT_HAIR")
+	owner.AnimState:Hide("HAIR_NOHAT")
+	owner.AnimState:Show("HAIR")
  		
-		inst.isWeared = true
-		inst.isDropped = false
+	inst.isWeared = true
+	inst.isDropped = false
 
 	
 end
@@ -81,7 +81,6 @@ local function fn(Sim)
     --inst.components.insulator:SetInsulation(100)
 	-- 보온율을 뜻합니다. 보온율은 100단위 입니다.
 	
-
 	
 	if not inst.components.sendispecific then
 	inst:AddComponent("sendispecific")
