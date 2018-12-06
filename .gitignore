@@ -1,9 +1,32 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2015 cache/options directory
+.vs/
+slnx.sqlite
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+dedicated_update.bat
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
+
 # Compiled Lua sources
 luac.out
 
 # luarocks build files
 *.src.rock
-.tar.gz
+*.tar.gz
 
 # Object files
 *.o
@@ -37,4 +60,7 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
-exported/
+
+README.md
+
+/exported
